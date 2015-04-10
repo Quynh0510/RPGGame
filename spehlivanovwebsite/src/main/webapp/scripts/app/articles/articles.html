@@ -1,0 +1,432 @@
+
+<div>
+	<script
+		src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=default&amp;lang=css"
+		defer="defer"></script>
+	<style>
+.operative {
+	font-weight: bold;
+	border: 1px solid yellow
+}
+</style>
+	</head>
+
+	<body>
+		<h1>Collections</h1>
+
+		<p>A short summary of all the JDK collections, 
+		including main characteristics and couple hints when one would choose one over other.
+		</p>
+
+
+
+		<!-- Language hints can be put in XML application directive style comments. -->
+		<?prettify lang=html linenums=true?>
+<!-- 		<pre class="prettyprint" id="quine" style="border: 4px solid #88c"> -->
+		
+<!-- 		</pre> -->
+		
+		<pre class="prettyprint"><code class="language-java">
+/**
+ * - java.util.ArrayList
+ * - Implements List interface.
+ * - Resizable-array implementation.
+ ****************************************Time complexity 
+ * *********************-Average-*******************************|*********************-Worst case-
+ *  Index-*********-Search-*********-Insert-*********-Delete    | Index		-	Search		-	Insert	-	Delete
+ *   O(1)          O(n)    	    O(n)    	O(n) 	  |  O(1)     		 O(n) 	  		 O(n) 		  O(n)
+ *   
+ * permit all elements, including null
+ * Not thread-safe
+ */
+List<Object> arrayList = new ArrayList<Object>();
+
+
+/**
+ * java.util.LinkedList
+ * Implements [List,Queue]  interface.
+ * Doubly-linked list implementation.
+ * 												Time complexity 
+ * 						Average                       |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *   O(n)          O(n)    	    O(1)    	O(1) 	  |  O(n)     		 O(n) 	  		 O(1) 		  O(1)
+ *   
+ * Permit all elements, including null
+ * Not Thread safe
+ */
+List<Object> linkedList = new LinkedList<Object>();
+
+
+
+/**
+ * java.util.Vector
+ * Implements List interface.
+ * Doubly-linked list implementation.
+ * 												Time complexity 
+ * 						Average                       |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *   O(1)          O(n)    	    O(n)    	O(n) 	  |  O(1)     		 O(n) 	  		 O(n) 		  O(n)
+ *   
+ * Permit all elements, including null
+ * Synchronized
+ */
+List<Object> vector = new Vector<Object>();
+
+/**
+ * java.util.CopyOnWriteArrayList
+ * - Seldom updated/ often traversed
+ * - Implements List interface.
+ * - The basic add,remove, etc operations implemented by making a fresh copy of the underlying array
+ * 												Time complexity 
+ * 						Average                       |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *   O(1)          O(n)    	    O(n)    	O(n) 	  |  O(1)     		 O(n) 	  		 O(n) 		  O(n)
+ *   
+ * Permit all elements, including null
+ * Synchronized, iterators are guaranteed never to throw ConcurrentModificationException.
+ * Useful in cases of frequent traversals and infrequent add/remove/search operations such as
+ * listeners/observers collection.
+ */
+List<Object> copyOnWriteArrayList = new CopyOnWriteArrayList<Object>();
+
+
+
+
+/**
+ * ###################################################################################################
+ * java.util.Map [Interface]
+ * A map cannot contain duplicate keys
+ * 
+ * Rules of thumb:
+ * - Always use immutable objects for keys.
+ * - It is strongly recommended to override the equals() and hashCode() methods.
+ * 
+ * Notes:
+ * - Two different objects might happen to have the same hashcode, but never a 'true' result form equals().
+ * - The identical objects should always have the same hashcode and 'true' result from equals()
+ */
+Map<Object,Object> map;
+
+/**
+ * java.util.Hashtable
+ * HashTable based
+ * 												Time complexity 
+ * 						Average                       |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *    -          O(1)    	    O(1)    	O(1) 	  | -      			 O(n) 	  		 O(n) 		  O(n)
+ * - Non-null keys
+ * - Thread-safe
+ * - No guarantees in regards to the iteration order
+ * - Fail-fast iterators, ConcurrentModificationException is thrown on a best-effort basis.
+ */
+Map<Object,Object> hashTable  = new Hashtable<Object,Object>();
+
+
+
+
+/**
+ * java.util.HashMap
+ * HashTable based
+ * 												Time complexity 
+ * 						Average                       |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *    -          O(1)    	    O(1)    	O(1) 	  | -      			 O(n) 	  		 O(n) 		  O(n)
+ * - Permit null for the key
+ * - No guarantees in regards to the iteration order
+ * - Iteration over collection views requires time proportional to the "capacity" of the HashMap instance,
+ *   (the number of buckets) plus its size (the number of key-value mappings).
+ * - Fail-fast iterators, ConcurrentModificationException is thrown on a best-effort basis.
+ */
+Map<Object,Object> hashMap  = new HashMap<Object,Object>();
+
+
+
+
+/**
+ * java.util.TreeMap
+ * Red-Black-Tree based
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ * O(log(n))   O(log(n))      O(log(n))    O(log(n))  | O(log(n))      O(log(n)) 	   O(log(n))   O(log(n))
+ * 
+ * Sorted --> the order is guaranteed
+ * Permits null for the key
+ * All keys must implement comparable interface or a comparator must be provided
+ * 
+ * No duplicate keys
+ * 
+ * Red Black Tree has faster insert/delete than AVL tree
+ * AVL Tree has faster lookup than Red black Tree
+ */
+Map<Object,Object> treeMap  = new TreeMap<Object,Object>();
+
+
+/**
+ * AVL Tree
+ *
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ * O(log(n))   O(log(n))      O(log(n))    O(log(n))  | O(log(n))      O(log(n)) 	   O(log(n))   O(log(n))
+ * 
+ * Sorted --> the order is guaranteed
+ * 
+ * 
+ * 
+ * No duplicate keys
+ */
+	// no java.util implementation
+
+/**
+ * 
+ * - java.util.LinkedHashMap
+ * - HashMap/LinkedList based
+ * - The most expensive JDK collection in terms of memory consumption per element.
+ * - Iteration order is not affected if key is re-inserted
+ * - Special constructor for LRU 
+ * 
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *    -          O(1)    	    O(1)    	O(1) 	  | -      			 O(n) 	  		 O(n) 		  O(n)
+ * 
+ * Sorted --> the order is guaranteed
+ * Permits null for the key
+ * All keys must implement comparable interface or a comparator must be provided
+ * 
+ * No duplicate keys
+ */
+Map<Object,Object> linkedHashMap  = new LinkedHashMap<Object,Object>();
+
+
+/**
+ * 
+ * - java.util.WeakHashMap
+ * - This map is generally used in data cache implementations. 
+ *   It keeps all its keys with WeakReference, which means that these keys may be garbage collected 
+ *   if there are no strong references to the key objects. Values, on the other hand, are stored using strong references. 
+ *   Because of this, you should either ensure that there are no references from values to keys, 
+ *   or keep values inside weak references too: m.put(key, new WeakReference(value))
+ * - Null keys and values are supported.
+ * - Not thread-safe.
+ * - 
+
+
+ */
+Map<Object,Object> weakHashMap = new WeakHashMap<Object,Object>();
+weakHashMap.put("key", new WeakReference<String>("value"));
+
+
+
+/**
+ * java.util.EnumMap
+ * - Fixed number of keys
+ * - Faster than HashMap
+ *
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ * O(log(n))   O(log(n))      O(log(n))    O(log(n))  | O(log(n))      O(log(n)) 	   O(log(n))   O(log(n))
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+//		Map<Object,Object>  enumMap = new EnumMap(String.class);
+//		
+//		########################################################################################
+//SETS
+
+/**
+ * java.util.HashSet
+ * - HashTable based
+ * - Not thread-safe
+ * 												Time complexity 
+ * 						Average                       |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *    -          O(1)    	    O(1)    	O(1) 	  | -      			 O(n) 	  		 O(n) 		  O(n)
+ * - Permit null elements
+ * - No guarantees in regards to the iteration order
+ * - Iteration over collection views requires time proportional to the "capacity" of the HashSet instance,
+ *   (the number of buckets) plus its size (the number of key-value mappings).
+ * - Fail-fast iterators, ConcurrentModificationException is thrown on a best-effort basis.
+ */
+Set<String> hashSet = new HashSet<String>();
+
+
+/**
+ * 
+ * - java.util.LinkedHashSet
+ * - LinkedHashMap based
+ * - Iteration order is not affected if key is re-inserted
+ * - Special constructor for LRU 
+ * 
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ *    -          O(1)    	    O(1)    	O(1) 	  | -      			 O(n) 	  		 O(n) 		  O(n)
+ * 
+ * Sorted --> the order is guaranteed
+ * Permits null for the elements
+ * All keys must implement comparable interface or a comparator must be provided
+ * 
+ * No duplicate keys
+ */
+Set<String> linkedHashSet = new LinkedHashSet<String>();
+
+
+
+/**
+ * java.util.TreeSet
+ * - The only sorted Set in the JDC collections
+ * - Not thread-safe
+ * - All elements must implement comparable or a comparator must be provided.
+ * - No null elements allowed.
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  Index		Search			Insert		Delete    | Index			Search			Insert		Delete
+ * O(log(n))   O(log(n))      O(log(n))    O(log(n))  | O(log(n))      O(log(n)) 	   O(log(n))   O(log(n))
+ * 
+ * Sorted --> the order is guaranteed
+ * 
+ */
+Set<String> treeSet = new TreeSet<String>();
+
+
+
+/**
+ * java.util.BitSet
+ * - Vector based
+ * -You should always keep in mind that you may use a BitSet for representing a dense set 
+ *  of integers (like ids starting from a number known in advance).
+ *  This class uses a long[] for bit storage
+ * 
+ */
+BitSet bitSet = new BitSet();
+
+
+
+
+
+
+//		########################################################################################
+/**
+ * java.util.Stack
+ * - LIFO
+ * - push/pop/peek
+ * - preferably use ArrayDeque
+ * 
+ **/
+Stack<String> stack = new Stack<String>();
+
+
+//		########################################################################################
+//Queues
+/**
+ * java.util.PriorityQueue
+ * based on priority heap
+ * - The elements are ordered based on their comparable or by provided comparator.
+ * - Does not permit null elements
+ * 
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  offer()		pool()			add		    remove()  | remove(o)	contain(o)	 peek()  size()
+ * O(log(n))   O(log(n))      O(log(n))    O(log(n))  | O(n)         O(n) 	      O(1))   O(1)
+ * 
+ */
+Queue<String> priorityQueue = new PriorityQueue<String>();
+
+
+//Blocking queue
+
+/**
+ * java.util.ArrayBlockingQueue
+ * array based
+ * - FIFO
+ * - Does not permit null elements
+ * - once created the capacity cannot change
+ * - attempt to put() element over the capacity results in blocking, so will
+ * - attempt to take() over empty queue
+ * 
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  offer()		pool()			add		    remove()  | remove(o)	contain(o)	 peek()  size()
+ * O(log(n))   O(log(n))      O(log(n))    O(log(n))  | O(n)         O(n) 	      O(1))   O(1)
+ * 
+ */
+BlockingQueue<Object> arrayBlockingQueue = new ArrayBlockingQueue(1);
+BlockingQueue<Object> linkedBlockingDeque = new LinkedBlockingDeque();
+BlockingQueue<Object> linkedTransferQueue = new LinkedTransferQueue();
+BlockingQueue<Object> priorityBlockingQueue = new PriorityBlockingQueue();
+
+
+
+//concurrent
+Queue<String> linkedBlockingQueue = new LinkedBlockingQueue<String>();
+//		Delayed delayed = new DelayedClass();
+Queue<DelayedClass> delayQueue = new DelayQueue<DelayedClass>();
+BlockingQueue<Object> synchronousQueue = new SynchronousQueue();
+//		########################################################################################
+
+
+
+
+//Concurrency
+Map<Object,Object> concurrentMap  = new ConcurrentHashMap<Object,Object>();
+
+
+/**
+ * - java.util.ArrayDeque
+ * - Resizable-array implementation of the {@link Deque} interface
+ * - No capacity restriction, grow as nessasary.
+ * - Not thread-safe
+ * - Null elements are prohibited.
+ * - Faster than Stack when used as stack
+ * - Faster than LinkedList when used as queue
+ * 
+ * 												Time complexity
+ * 				Average                      	      |      				 Worst case
+ *  offer()	contains()			add		    remove()  | remove(o)	contain(o)	 peek()  size()
+ * O(log(n))   O(log(n))      O(log(1))    O(log(1))  | O(n)         O(n) 	      O(1))   O(1)
+ * 
+ */
+Deque<Object> arrayDeque = new ArrayDeque();
+Queue<Object> arrayDeque2 = new ArrayDeque();
+
+
+
+
+/**
+ * Heaps:
+ * - Very fast insert.delete
+ * - very slow traverse/search
+ * - Parent key is always bigger than the child
+ * - Complete except for the last row
+ * - Usually implemented as array
+ * 
+ * 
+ */
+
+
+
+
+/**
+ * Referenes:
+ * Java API
+ * http://docs.oracle.com/javase/tutorial/collections/implementations/index.html
+ * http://java-performance.info/java-collections-overview/
+ * http://bigocheatsheet.com/
+ * 
+ */		
+		
+		
+		
+		
+		
+		</code></pre>
+
+
+</div>

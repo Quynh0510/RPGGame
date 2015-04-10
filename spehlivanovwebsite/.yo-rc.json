@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "baseName": "spehlivanovwebsite",
+    "packageName": "com.spehlivanov.website",
+    "packageFolder": "com/spehlivanov/website",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "rememberMeKey": "d0cf429642b4c1716adb599b4bf8c9fdaa533e43"
+  }
+}

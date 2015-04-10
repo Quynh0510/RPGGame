@@ -1,0 +1,45 @@
+<div>
+	<nav class="navbar navbar-custom border-custom" role="navigation"
+		ng-controller="NavbarController">
+		<div class="container-fluid">
+
+			<div class="collapse navbar-collapse" id="navbar-collapse"
+				ng-switch="isAuthenticated()">
+				<ul class="nav navbar-nav nav-pills navbar-left">
+
+
+				
+					<li ng-click="toggleLeft()" ui-sref-active="active" class="dynamic_border">
+					<a href="/" > 
+						<span class="glyphicon glyphicon-home"></span> 
+						<span translate="global.menu.contents">Contents</span>
+					</a></li>
+
+	
+				</ul>
+
+
+<div class="navbar-brand">
+
+
+			<span ui-sref-active="active"><a ui-sref="home"> <span
+							class=""></span> <span
+							translate="global.title">Home</span>
+					</a></span>
+
+</div>
+				
+				
+				
+				<ul class="nav navbar-nav nav-pills navbar-right">
+
+					<li ng-click="toggleRight()" ui-sref-active="active"><a>
+
+							<span class="glyphicon glyphicon-home"></span> <span
+							translate="global.menu.menu">Menu</span>
+					</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>

@@ -1,0 +1,48 @@
+<div ng-controller="NavbarController" layout="column"
+	ng-switch="isAuthenticated()">
+	<section layout="row" flex>
+		<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+			md-component-id="left"> <md-toolbar
+			class="md-theme-indigo">
+		<h1 class="md-toolbar-tools">Contents</h1>
+		</md-toolbar> <md-content class="md-padding">
+
+		<li><a> <span class="glyphicon glyphicon-home"></span> <span
+				translate="global.menu.blog">Blog</span>
+		</a></li>
+
+			<li ui-sref-active="active"><a ui-sref="collections"> <span
+						class="glyphicon glyphicon-home"></span> <span
+						translate="global.leftNav.collections">Collections</span>
+				</a></li>
+
+
+		</md-content> </md-sidenav>
+		<!--     <md-content flex class="md-padding"> -->
+		<!--       <div layout="column" layout-fill layout-align="center center"> -->
+		<!--         <p> -->
+		<!--         The left sidenav will 'lock open' on a medium (>=960px wide) device. -->
+		<!--         </p> -->
+		<!--         <div> -->
+		<!--           <md-button ng-click="toggleLeft()" -->
+		<!--             class="md-primary" hide-gt-md> -->
+		<!--             Toggle left -->
+		<!--           </md-button> -->
+		<!--         </div> -->
+		<!--         <div> -->
+		<!--           <md-button ng-click="toggleRight()" -->
+		<!--             class="md-primary"> -->
+		<!--             Toggle right -->
+		<!--           </md-button> -->
+		<!--         </div> -->
+		<!--       </div> -->
+		<!--     </md-content> -->
+
+
+
+
+		</md-content>
+		</md-sidenav>
+	</section>
+</div>
+

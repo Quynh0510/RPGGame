@@ -1,0 +1,376 @@
+body {
+	background: #fafafa;
+	background: url("../images/background.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	/* 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+	/*     color: #333; */
+	background-size: cover;
+	display: block;
+	/* height: 450px; */
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	-webkit-mask-image: -webkit-gradient(bottom, color-stop(0.00, rgba(0, 0, 0, 1)),
+		color-stop(0.35, rgba(0, 0, 0, 1)), color-stop(0.50, rgba(0, 0, 0, 0)),
+		color-stop(0.65, rgba(0, 0, 0, 0)), color-stop(1.00, rgba(0, 0, 0, 0)));
+	/* 	font-family: 'proxima-nova', Helvetica, sans-serif; */
+	/* 	color: #333; */
+	/* 	font-size: 18px; */
+	/* 	line-height: 1.5em; */
+	/* 	margin: 0; */
+	/* 	min-height: 100%; */
+	/* 	padding: 0; */
+	/* 	-webkit-font-smoothing: antialiased; */
+}
+/* 3px solid white */
+a {
+	color: #fff;
+	text-decoration: none;
+}
+/* fix the hoover on the navbar buttons */
+.navbar-custom .navbar-nav>li>a:hover, .navbar-custom .navbar-nav>li>a:focus{
+	background-color: transparent;
+	color: white;
+}
+/* navbar white border */
+.navbar-custom .navbar-nav>li>a {
+/* 	border: 3px solid rgba(255, 255, 255, 0.7); */
+	border: 1px solid white;
+}
+.navbar-custom .navbar-nav>li>a:hover{
+/* 	border: 3px solid rgba(255, 255, 255, 0.7); */
+/* 	border: 3px solid white; */
+	border: 3px white solid;
+	  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* span { */
+/*     font-size:12px; */
+/* } */
+/* a { */
+/*     color:green; */
+/* } */
+/* a:hover span { */
+/*     display:none; */
+/* } */
+/* a:hover:before { */
+/*     color:red; */
+/*     font-size:24px; */
+/*     content:"ಕನ್ನಡ"; */
+/* } */
+
+
+/* 333 */
+.font-s {
+	color: #fff;
+	/* 	        color: #424242; */
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond,
+		Times, serif;
+	letter-spacing: 0.1em;
+	text-align: center;
+	margin: 40px auto;
+/* 	text-transform: lowercase; */
+	line-height: 145%;
+/* 	font-size: 14pt; */
+/* 	font-variant: small-caps; */
+}
+
+.navbar-custom {
+	background-color: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	width: 100%;
+	/*   border-color: #080808; */
+}
+
+.mini-header {
+	color: #fff;
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond,
+		Times, serif;
+	letter-spacing: 0.1em;
+	text-align: center;
+	margin: 40px auto;
+	text-transform: lowercase;
+	line-height: 145%;
+	font-size: 14pt;
+	font-variant: small-caps;
+	width: 450px;
+	padding: 10px;
+	top:30px;
+	position: relative;
+}
+
+.border-custom {
+	background-color: rgba(0, 0, 0, 0.7);
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 4px;
+}
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak,
+	.x-ng-cloak {
+	display: none !important;
+}
+
+/* ==========================================================================
+Developement Ribbon
+========================================================================== */
+.development {
+	position: absolute;
+	width: 149px;
+	height: 149px;
+	top: 0;
+	left: 0;
+	border: 0;
+	z-index: 1000;
+	background-image: url("../images/development_ribbon.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* ==========================================================================
+Version number in navbar
+========================================================================== */
+.navbar-version {
+	font-size: 10px;
+	color: #ccc
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+.hero-unit {
+	margin: 50px auto 0 auto;
+	width: 300px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	background-color: #eee;
+	border-radius: 6px;
+	padding: 60px;
+}
+
+.hero-unit h1 {
+	font-size: 60px;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+.error {
+	color: white;
+	background-color: red;
+}
+
+#avatar_container {
+	float: left;
+	width: 230px;
+	height: 200px;
+}
+
+.avatar {
+	display: inline-block;
+	width: 347px;
+	height: 497px;
+	background: url("../images/avatar.jpg") no-repeat center top;
+	background-size: contain;
+	float: left;
+	padding: 0;
+	border: 0;
+}
+
+.photo {
+	border-radius: 200px;
+	height: 200px;
+	width: 200px;
+}
+
+.linkedin {
+	background: url("../images/social_linkedin_box_blue.png");
+	width: 20px;
+	height: 20px;
+	background-size: contain;
+	display: block;
+	bottom: 0px;
+}
+.twitter {
+	background: url("../images/twitter_logo.png");
+	width: 20px;
+	height: 20px;
+	background-size: contain;
+	display: block;
+	bottom: 0px;
+}
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) , only screen and (
+		min--moz-device-pixel-ratio: 2) , only screen and (
+		-o-min-device-pixel-ratio: 2/1) , only screen and (
+		min-device-pixel-ratio: 2) , only screen and ( min-resolution: 192dpi)
+		, only screen and ( min-resolution: 2dppx) {
+	.hipster {
+		background: url("../images/hipster2x.png") no-repeat center top;
+		background-size: contain;
+	}
+}
+
+.hand {
+	cursor: pointer;
+}
+
+#threadDump .popover, #healthCheck .popover {
+	top: inherit;
+	display: block;
+	font-size: 10px;
+	max-width: 1024px;
+}
+
+#healthCheck .popover {
+	margin-left: -50px;
+}
+
+.alert .popover pre {
+	font-size: 10px;
+}
+
+.voffset {
+	margin-top: 2px;
+}
+
+.voffset1 {
+	margin-top: 5px;
+}
+
+.voffset2 {
+	margin-top: 10px;
+}
+
+.voffset3 {
+	margin-top: 15px;
+}
+
+.voffset4 {
+	margin-top: 30px;
+}
+
+.voffset5 {
+	margin-top: 40px;
+}
+
+.voffset6 {
+	margin-top: 60px;
+}
+
+.voffset7 {
+	margin-top: 80px;
+}
+
+.voffset8 {
+	margin-top: 100px;
+}
+
+.voffset9 {
+	margin-top: 150px;
+}
+
+/* start Password strength bar style */
+ul#strength {
+	display: inline;
+	list-style: none;
+	margin: 0;
+	margin-left: 15px;
+	padding: 0;
+	vertical-align: 2px;
+}
+
+.point:last {
+	margin: 0 !important;
+}
+
+.point {
+	background: #DDD;
+	border-radius: 2px;
+	display: inline-block;
+	height: 5px;
+	margin-right: 1px;
+	width: 20px;
+}
+/* end Password strength bar style */
+
+/* ######################################################################################## */
+
+/* make sidebar nav vertical */
+/* @media (min-width: 768px) { */
+.sidebar-nav .navbar .navbar-collapse {
+	padding: 0;
+	max-height: none;
+}
+
+.sidebar-nav .navbar ul {
+	float: none;
+}
+
+.sidebar-nav .navbar ul:not {
+	display: block;
+}
+
+.sidebar-nav .navbar li {
+	float: none;
+	display: block;
+}
+
+.sidebar-nav .navbar li a {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+/* } */
+
+/* #### */
+.md-sidenav-left, .md-sidenav-right {
+	top: 50px;
+	background: transparent;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: fixed;
+
+}
+
+.md-sidenav-left .md-default-theme, .md-sidenav-right .md-default-theme
+	{
+	background: none;
+	background-color: rgba(0, 0, 0, 0.0);
+}
+
+/*  @media (max-width: 768px){ */
+#wrapper.toggled {
+	padding-left: none;
+}
+/*  } */
+.footer {
+	width:100%;
+	height:40px;
+	position:fixed;
+	bottom:0;
+	left:0;
+	
+}
+
+.mainView {
+	/* 	display: none; */
+	/* 	width: auto; */
+	/* 	margin-left: 320px; */
+	/* 	float: right; */
+	
+}
+
+.person_container {
+	float: left;
+}

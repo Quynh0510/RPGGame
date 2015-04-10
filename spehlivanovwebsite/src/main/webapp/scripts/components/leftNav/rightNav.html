@@ -1,0 +1,137 @@
+<div ng-controller="NavbarController" layout="column" ng-switch="isAuthenticated()">
+  <section layout="row" flex>
+  
+<!--     <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right"> -->
+	<md-sidenav class="md-sidenav-right " md-component-id="right">
+<!--       <md-toolbar class="md-theme-light"> -->
+   <md-toolbar class="">
+        <h1 class="md-toolbar-tools">
+        			<span class="glyphicon glyphicon-home"></span> <span
+							translate="global.menu.menu">Menu</span>
+        </h1>
+      </md-toolbar>
+      <md-content ng-controller="NavbarController" class="md-padding">
+
+        
+        
+        				<ul class="nav navbar-nav nav-pills navbar-right">
+
+					<li ng-click="toggleRight()" ui-sref-active="active"><a>
+
+							<span class="glyphicon glyphicon-home"></span> <span
+							translate="global.menu.menu">Menu</span>
+					</a></li>
+
+
+
+
+					<!-- 				<li ng-controller="LogInModalCtrl"><a ng-click="open()">Sign-in</a></li> -->
+					<!-- 				<li ng-controller="RegisterModalCtrl"><a  ng-click="open()" >Register</a></li> -->
+
+					<li ui-sref-active="active" ng-switch-when="false"><a
+						ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>
+							&#xA0;<span translate="global.menu.account.login">Sign-in</span></a></li>
+					<li><a href="#/user/linkedIn">LinkedIn</a></li>
+
+
+
+
+					<li ui-sref-active="active" class="dropdown pointer"
+						ng-controller="LanguageController"><a class="dropdown-toggle"
+						data-toggle="dropdown" href=""> <span> <span
+								class="glyphicon glyphicon-flag"></span> <span
+								class="hidden-tablet" translate="global.menu.language">Language</span>
+								<b class="caret"></b>
+						</span>
+					</a>
+						<ul class="dropdown-menu">
+							<li active-menu="{{language}}" ng-repeat="language in languages">
+								<a href="" ng-click="changeLanguage(language)">{{'language.'
+									+ language| translate}}</a>
+							</li>
+						</ul></li>
+
+				
+				
+				
+				
+        
+        
+        			<li ng-class="{active: $state.includes('account')}"
+						class="dropdown pointer"><a class="dropdown-toggle"
+						data-toggle="dropdown" href=""> <span> <span
+								class="glyphicon glyphicon-user"></span> <span
+								class="hidden-tablet" translate="global.menu.account.main">
+									Account </span> <b class="caret"></b>
+						</span>
+					</a>
+						<ul class="dropdown-menu">
+							<li ui-sref-active="active" ng-switch-when="true"><a
+								ui-sref="settings"><span class="glyphicon glyphicon-wrench"></span>
+									&#xA0;<span translate="global.menu.account.settings">Settings</span></a></li>
+							<li ui-sref-active="active" ng-switch-when="true"><a
+								ui-sref="password"><span class="glyphicon glyphicon-lock"></span>
+									&#xA0;<span translate="global.menu.account.password">Password</span></a></li>
+							<li ui-sref-active="active" ng-switch-when="true"><a
+								ui-sref="sessions"><span class="glyphicon glyphicon-cloud"></span>
+									&#xA0;<span translate="global.menu.account.sessions">Sessions</span></a></li>
+							<li ui-sref-active="active" ng-switch-when="true"><a href=""
+								ng-click="logout()"><span
+									class="glyphicon glyphicon-log-out"></span> &#xA0;<span
+									translate="global.menu.account.logout">Log out</span></a></li>
+							<li ui-sref-active="active" ng-switch-when="false"><a
+								ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>
+									&#xA0;<span translate="global.menu.account.login">Authenticate</span></a></li>
+
+							<li ui-sref-active="active" ng-switch-when="false"><a
+								ui-sref="register"><span
+									class="glyphicon glyphicon-plus-sign"></span> &#xA0;<span
+									translate="global.menu.account.register">Register</span></a></li>
+						</ul></li>
+					<li ng-class="{active: $state.includes('admin')}"
+						ng-switch-when="true" ng-show="isInRole('ROLE_ADMIN')"
+						class="dropdown pointer"><a class="dropdown-toggle"
+						data-toggle="dropdown" href=""> <span> <span
+								class="glyphicon glyphicon-tower"></span> <span
+								class="hidden-tablet" translate="global.menu.admin.main">Admin</span>
+								<b class="caret"></b>
+						</span>
+					</a>
+						<ul class="dropdown-menu">
+							<li ui-sref-active="active"><a ui-sref="metrics"><span
+									class="glyphicon glyphicon-dashboard"></span> &#xA0;<span
+									translate="global.menu.admin.metrics">Metrics</span></a></li>
+							<li ui-sref-active="active"><a ui-sref="health"><span
+									class="glyphicon glyphicon-heart"></span> &#xA0;<span
+									translate="global.menu.admin.health">Health</span></a></li>
+							<li ui-sref-active="active"><a ui-sref="configuration"><span
+									class="glyphicon glyphicon-list-alt"></span> &#xA0;<span
+									translate="global.menu.admin.configuration">Configuration</span></a></li>
+							<li ui-sref-active="active"><a ui-sref="audits"><span
+									class="glyphicon glyphicon-bell"></span> &#xA0;<span
+									translate="global.menu.admin.audits">Audits</span></a></li>
+							<li ui-sref-active="active"><a ui-sref="logs"><span
+									class="glyphicon glyphicon-tasks"></span> &#xA0;<span
+									translate="global.menu.admin.logs">Logs</span></a></li>
+							<li ui-sref-active="active"><a ui-sref="docs"><span
+									class="glyphicon glyphicon-book"></span> &#xA0;<span
+									translate="global.menu.admin.apidocs">API Docs</span></a></li>
+						</ul></li>
+        
+        
+        
+        
+        </ul>
+  
+        
+        
+        
+        
+        
+        
+        
+      </md-content>
+    </md-sidenav>
+  </section>
+</div>
+
